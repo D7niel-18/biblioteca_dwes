@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+/* Estilos de la tabla */
+.tabla-libros {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.tabla-libros th, .tabla-libros td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.tabla-libros th {
+  background-color: #f4f4f4;
+}
+
+/* Mensaje si no hay libros */
+.mensaje-vacio {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 15px;
+  border: 1px solid #ffeeba;
+  border-radius: 5px;
+}
+
+/* Clases de estado */
+.estado {
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+.disponible { color: green; }
+.en-prestamo { color: red; }

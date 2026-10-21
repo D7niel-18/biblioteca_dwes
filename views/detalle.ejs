@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= libro.titulo %> - Detalle</title>
+  <link rel="stylesheet" href="/css/detalle.css">
+</head>
+<body>
+
+  <article class="ficha-detalle">
+    <header class="ficha-header">
+      <h1><%= libro.titulo %></h1>
+      <span class="libro-id">ID: #<%= libro.id %></span>
+    </header>
+
+    <div class="info-grupo">
+      <div class="info-item">
+        <span class="etiqueta">Autor</span>
+        <span class="valor"><%= libro.autor %></span>
+      </div>
+
+      <% if (libro.categoria) { %>
+        <div class="info-item">
+          <span class="etiqueta">Categoría</span>
+          <span class="valor"><%= libro.categoria %></span>
+        </div>
+      <% } %>
+
+      <div class="info-item">
+        <span class="etiqueta">Estado</span>
+        <% if (libro.disponible) { %>
+          <span class="estado disponible">Disponible</span>
+        <% } else { %>
+          <span class="estado en-prestamo">En préstamo</span>
+        <% } %>
+      </div>
+    </div>
+
+    <footer class="acciones">
+      <a href="/libros" class="btn-volver">← Volver al catálogo</a>
+    </footer>
+  </article>
+
+</body>
+</html>

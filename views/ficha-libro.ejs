@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Libros</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <h1>Catálogo de Libros</h1>
+
+    <form action="/libros" method="GET">
+        <label for="busqueda">Buscar libro:</label>
+
+        <input
+            type="text"
+            id="busqueda"
+            name="busqueda"
+            value="<%= busqueda %>"
+            placeholder="Título o autor"
+        >
+
+        <button type="submit">Buscar</button>
+    </form>
+
+    <% if (libros.length === 0) { %>
+
+        <p class="mensaje-vacio">
+            No se han encontrado libros.
+        </p>
+
+    <% } else { %>
+
+        <table class="tabla-libros">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% libros.forEach(libro => { %>
+                    <tr>
+                        <td><%= libro.id %></td>
+                        <td><%= libro.titulo %></td>
+                        <td><%= libro.autor %></td>
+
+                        <td>
+                            <% if (libro.disponible) { %>
+                                <span class="estado disponible">
+                                    Disponible
+                                </span>
+                            <% } else { %>
+                                <span class="estado en-prestamo">
+                                    En préstamo
+                                </span>
+                            <% } %>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+    <% } %>
+
+</body>
+</html>
